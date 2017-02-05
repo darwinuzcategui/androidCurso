@@ -1,4 +1,4 @@
-echo "# androicurso >>reame.txt
+echo "# androicurso >>README.MD
 git init
 git add .
 git commit -m "demo5"
