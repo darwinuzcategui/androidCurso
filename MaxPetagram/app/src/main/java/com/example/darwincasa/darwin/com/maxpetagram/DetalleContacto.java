@@ -14,39 +14,45 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 
 /**
  * Created by anahisalgado on 19/04/16.
  */
 public class DetalleContacto extends AppCompatActivity {
     private static final String KEY_EXTRA_URL = "url";
-    private static final String KEY_EXTRA_LIKE = "like";
-    private TextView tvNombre;
-    private TextView tvTelefono;
-    private TextView tvEmail;
+    private static final String KEY_EXTRA_LIKES = "like";
+   // private TextView tvNombre;
+    //private TextView tvTelefono;
+    //private TextView tvEmail;
+    private ImageView imgFotoDetalle;
+    private TextView  tvLikeDetalle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_contacto);
+        setContentView(R.layout.activity_detalle_contacto_foto);
 
         Bundle extras      = getIntent().getExtras();
-        String nombre      = extras.getString("nombre");
-        String telefono    = extras.getString("telefono");
-        String email       = extras.getString("email");
+        String url      = extras.getString((KEY_EXTRA_URL));
+        int like    = extras.getInt((KEY_EXTRA_LIKES));
 
 
-        tvNombre    = (TextView) findViewById(R.id.tvNombre);
-        tvTelefono  = (TextView) findViewById(R.id.tvTelefono);
-        tvEmail     = (TextView) findViewById(R.id.tvEmail);
 
-        tvNombre.setText(nombre);
-        tvTelefono.setText(telefono);
-        tvEmail.setText(email);
+
+        tvLikeDetalle     = (TextView) findViewById(R.id.tvLikesDetalle);
+        tvLikeDetalle.setText(String.valueOf(like));
+
+        imgFotoDetalle = (ImageView) findViewById(R.id.imgFotoDetalle01);
+        Picasso.with(this)
+                .load(url)
+                .placeholder(R.drawable.huesito)
+                .into(imgFotoDetalle);
 
 
     }
-
+/*
     public void llamar(View v) {
         String telefono = tvTelefono.getText().toString();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -62,7 +68,8 @@ public class DetalleContacto extends AppCompatActivity {
         startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + telefono)));
 
     }
-
+*/
+    /*
     public void enviarMail(View v){
         String email = tvEmail.getText().toString();
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -71,4 +78,5 @@ public class DetalleContacto extends AppCompatActivity {
         emailIntent.setType("message/rfc822");
         startActivity(Intent.createChooser(emailIntent, "Email "));
     }
+     */
 }

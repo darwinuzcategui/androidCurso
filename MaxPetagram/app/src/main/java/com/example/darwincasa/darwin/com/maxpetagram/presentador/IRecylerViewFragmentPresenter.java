@@ -8,5 +8,7 @@ public interface IRecylerViewFragmentPresenter {
 
     public void obtenerContactos();
 
+    public  void obtenerMedioRecintes();
+
     public void mostrarContactosRV();
 }

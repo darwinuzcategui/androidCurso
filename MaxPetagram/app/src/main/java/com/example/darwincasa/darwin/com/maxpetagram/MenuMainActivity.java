@@ -1,14 +1,16 @@
 package com.example.darwincasa.darwin.com.maxpetagram;
+
+/**
+ * Created by Darwin Uzcategui on 06/02/2017.
+ */
+
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,65 +18,18 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.example.darwincasa.darwin.com.maxpetagram.adapter.PageAdapter;
-import com.example.darwincasa.darwin.com.maxpetagram.vista.fragment.PerfilFragment;
-import com.example.darwincasa.darwin.com.maxpetagram.vista.fragment.RecyclerViewFragment;
-
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
-
-
-    private static final String KEY_EXTRA_NAME = "name";
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+public class MenuMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.menu_activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        Log.e("MainActivity", "onCreate");
-        setUpViewPager();
-
-
-
-
-
-        if (toolbar != null){
-            setSupportActionBar(toolbar);
-        }
-
+        TextView tvNombre = (TextView) findViewById(R.id.tvNombre);
+        registerForContextMenu(tvNombre);
 
 
     }
-
-    private ArrayList<Fragment> agregarFragments(){
-        Log.e("MainActivity", "agregarFragments");
-        ArrayList<Fragment> fragments = new ArrayList<>();
-
-        fragments.add(new RecyclerViewFragment());
-        fragments.add(new PerfilFragment());
-
-        return fragments;
-    }
-
-    private void setUpViewPager(){
-        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
-        tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_contacts);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_name);
-    }
-
-
-    //************************************probando menu
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.mRefresh:
-                Toast.makeText(MainActivity.this, "Refresh", Toast.LENGTH_LONG).show();
+                Toast.makeText(MenuMainActivity.this, "Refresh", Toast.LENGTH_LONG).show();
                 break;
 
         }
@@ -160,4 +115,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 }

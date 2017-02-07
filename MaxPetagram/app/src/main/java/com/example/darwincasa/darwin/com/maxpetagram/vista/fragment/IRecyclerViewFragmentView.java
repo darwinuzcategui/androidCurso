@@ -16,6 +16,9 @@ public interface IRecyclerViewFragmentView {
 
     public void generarLinearLayoutVertical();
 
+    public void generarGrirdLayout();
+
+
     public ContactoAdaptador crearAdaptador(ArrayList<Contacto> contactos);
 
     public void inicializarAdaptadorRV(ContactoAdaptador adaptador);

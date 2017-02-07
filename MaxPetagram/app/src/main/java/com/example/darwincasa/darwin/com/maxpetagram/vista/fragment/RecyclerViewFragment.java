@@ -63,6 +63,16 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
     }
 
     @Override
+    public void generarGrirdLayout() {
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+
+        rvContactos.setLayoutManager(gridLayoutManager);
+
+
+    }
+
+    @Override
     public ContactoAdaptador crearAdaptador(ArrayList<Contacto> contactos) {
         ContactoAdaptador adaptador = new ContactoAdaptador(contactos, getActivity()  );
         return adaptador;

@@ -28,6 +28,27 @@
 
         </android.support.design.widget.TabLayout>
 
+        <LinearLayout
+            android:id="@+id/lineaTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:text="@string/nombre"
+             android:gravity="center_horizontal" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                app:srcCompat="@drawable/huesito"
+                android:id="@+id/imageView" />
+
+
+        </LinearLayout>
+
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
